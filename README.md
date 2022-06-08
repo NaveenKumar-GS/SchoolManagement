@@ -1,2 +1,2 @@
 # SchoolManagement
-Simple School Management Website
+Simple School Management Demo Website
