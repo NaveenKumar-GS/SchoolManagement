@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Schoolmanagementn.UserRegistration>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="card-label font-weight-boldest">
+    User Registrtaion</h3>
+<a href="https://localhost:44360/UserRegistrations/create" class="btn btn-light-primary font-weight-bold mr-2" style="margin-left: 800px">
+    <i class="ki ki-plus icon-sm"></i> Add New User
+</a>
+    <div class="card-body">
+       
+        <!--begin: Datatable-->
+        <table class="table table-checkable" id="example">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EmailId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Role1.RoleName)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmailId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Role1.RoleName)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                Searching: true,
+                paging: true,
+
+                sort: true,
+                scrollY: 400,
+                columnDefs: [{
+                    targets: [1,2,3],
+                    sortable: false,
+                    searchable: true,
+                }]
+            });
+        });</script>
+
+

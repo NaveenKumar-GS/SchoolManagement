@@ -1,0 +1,149 @@
+﻿@model Schoolmanagementn.Models.RegistrationViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid d-flex flex-wrap flex-sm-nowrap">
+        <h3 class="card-label font-weight-boldest">
+            Add User
+        </h3>
+        <!--end::Details-->
+        <!--begin::Toolbar-->
+        
+            <!--begin::Button-->
+            <a href="https://localhost:44360/UserRegistrations" class="btn btn-default font-weight-bold btn-sm px-3 font-size-base" style="margin-left: 700px">Back</a>
+            
+            <div class="btn-group ml-2">
+                <button type="submit" class="btn btn-primary font-weight-bold btn-sm px-3 font-size-base">Save</button>
+            </div>
+           
+        </div>
+        
+
+    <div class="container">
+        <!--begin::Card-->
+        <div class="card card-custom">
+            <!--begin::Card header-->
+            <div class="card-header card-header-tabs-line nav-tabs-line-3x">
+                <!--begin::Toolbar-->
+                <div class="card-toolbar">
+                    <ul class="nav nav-tabs nav-bold nav-tabs-line nav-tabs-line-3x">
+
+                        <li class="nav-item mr-3">
+                            <a class="nav-link active" data-toggle="tab" href="#kt_con_tab">
+                                <span class="nav-icon">
+                                    <span class="svg-icon">
+                                        <!--begin::Svg Icon | path:/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Layers.svg-->
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <polygon points="0 0 24 0 24 24 0 24"></polygon>
+                                                <path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
+                                                <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"></path>
+                                            </g>
+                                        </svg>
+                                        <!--end::Svg Icon-->
+                                    </span>
+                                </span>
+                                <span class="nav-text font-size-lg">User</span>
+                            </a>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <a class="nav-link" data-toggle="tab" href="#kt_contact_tab">
+                                <span class="nav-icon">
+                                    <i class="fas fa-phone-square-alt"></i>
+                                </span>
+                                <span class="nav-text font-size-lg">Contact Info</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <!--end::Toolbar-->
+            </div>
+            <!--end::Card header-->
+            <!--begin::Card body-->
+            <div class="card-body">
+
+                <div class="tab-content">
+                    <!--begin::Tab-->
+                    <div class="tab-pane " id="kt_contact_tab" role="tabpanel">
+                        <div class="card-body">
+                            <div class="form-group row rowcostumclass">
+
+                                @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", Placeholder = "Enter Your Phone number" } })
+                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+
+                            </div>
+                            <div class="form-group row rowcostumclass">
+
+
+                                @Html.LabelFor(model => model.EmailId, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @class = "form-control", Placeholder = "Enter Email Id" } })
+                                @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane active" id="kt_con_tab" role="tabpanel">
+                        <div class="card-body">
+                            <div class=" form-group row rowcostumclass">
+
+                                @Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control", Placeholder = "Enter User Id" } })
+                                @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+
+                            </div>
+                            <div class="form-group  row rowcostumclass">
+
+                                @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", Placeholder = "Enter Full Name" } })
+                                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+
+                            </div>
+                            <div class="form-group row rowcostumclass">
+
+                                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", Placeholder = "Enter Your Password" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                            </div>
+                            <div class="form-group row rowcostumclass">
+
+                                @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                @Html.DropDownList("Role", null, "-Select Role-", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!--begin::Card body-->
+        </div>
+        <!--end::Card-->
+    </div>
+
+    
+
+}
+@section Scripts {
+
+
+    @Scripts.Render("~/bundles/jqueryval")
+}

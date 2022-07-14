@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html>
+<!--
+Template Name: Metronic - Bootstrap 4 HTML, React, Angular 11 & VueJS Admin Dashboard Theme
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: https://1.envato.market/EA4JP
+Renew Support: https://1.envato.market/EA4JP
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management</title>
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/keenthemescss")
+    @Styles.Render("~/Content/css")
+    @*@Styles.Render("~/bundles/datatables")*@
+    @Styles.Render("~/assets/plugins/global/plugins.bundle.css")
+    @Styles.Render("~/assets/css/style.bundle.css")
+    @Styles.Render("~/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css")
+    @Styles.Render("~/assets/plugins/custom/prismjs/prismjs.bundle.css")
+    @Styles.Render("~/assets/css/themes/layout/header/base/light.css")
+    @Styles.Render("~/assets/css/themes/layout/header/menu/light.css")
+    @Styles.Render("~/assets/css/themes/layout/brand/dark.css")
+    @Styles.Render("~/assets/css/themes/layout/aside/dark.css")
+    @* @Styles.Render("~/Styles/dataTables.checkboxes.css")*@
+    @Styles.Render("~/assets/plugins/custom/jstree/jstree.bundle.css")
+    @Styles.Render("~/assets/plugins/custom/datatables/datatables.bundle.css")
+    @Styles.Render("~/assets/plugins/global/plugins.bundle.css")
+    @Styles.Render("~/assets/plugins/custom/prismjs/prismjs.bundle.css")
+    @Styles.Render("~/assets/css/style.bundle.css")
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+    </style>
+
+
+</head>
+
+<body id="kt_body" class="bg-white">
+
+
+    <div class=" aside-menu-wrapper flex-column-fluid" id="kt_aside_menu_wrapper">
+        <div id="kt_aside_menu" class="aside-menu my-4 scroll ps" data-menu-vertical="1" data-menu-scroll="1" data-menu-dropdown-timeout="00" style="height: 181px; overflow: hidden;">
+            <h1 style="color:skyblue" class="font-weight-boldest ">
+                <br />
+                &nbsp;&nbsp; School Management&nbsp;&nbsp;&nbsp;
+            </h1>
+            <ul style="margin-left:20px;margin-right:40px" class=" menu-nav font-weight-bold nav navbar-nav  ">
+                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                    <a class=" svg-fill-primary menu-item menu-item-active menu-link text-hover-primary  font-size-h4 bg-hover-dark-o-1 " aria-haspopup="true" style="color:darkgray; " data-menu-toggle="hover" href="/Home">
+                        <span class="svg-icon menu-icon svg-icon-2x">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24" />
+                                    <path d="M3.95709826,8.41510662 L11.47855,3.81866389 C11.7986624,3.62303967 12.2013376,3.62303967 12.52145,3.81866389 L20.0429,8.41510557 C20.6374094,8.77841684 21,9.42493654 21,10.1216692 L21,19.0000642 C21,20.1046337 20.1045695,21.0000642 19,21.0000642 L4.99998155,21.0000673 C3.89541205,21.0000673 2.99998155,20.1046368 2.99998155,19.0000673 L2.99999828,10.1216672 C2.99999935,9.42493561 3.36258984,8.77841732 3.95709826,8.41510662 Z M10,13 C9.44771525,13 9,13.4477153 9,14 L9,17 C9,17.5522847 9.44771525,18 10,18 L14,18 C14.5522847,18 15,17.5522847 15,17 L15,14 C15,13.4477153 14.5522847,13 14,13 L10,13 Z" fill="#00000" />
+                                </g>
+                            </svg><span class="menu-text font-size-h4">
+                                Home
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                    <a class="menu-item menu-item-active menu-link text-hover-primary  font-size-h4 bg-hover-dark-o-1 " aria-haspopup="true" data-menu-toggle="hover" style="color:darkgray" href="/UserRegistrations">
+
+                        <span class="svg-icon menu-icon svg-icon-2x">
+
+
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+
+                                    <rect x="0" y="0" width="24" height="24" />
+                                    <path d="M8,3 L8,3.5 C8,4.32842712 8.67157288,5 9.5,5 L14.5,5 C15.3284271,5 16,4.32842712 16,3.5 L16,3 L18,3 C19.1045695,3 20,3.8954305 20,5 L20,21 C20,22.1045695 19.1045695,23 18,23 L6,23 C4.8954305,23 4,22.1045695 4,21 L4,5 C4,3.8954305 4.8954305,3 6,3 L8,3 Z" fill="#000000" opacity="0.3" />
+                                    <path d="M11,2 C11,1.44771525 11.4477153,1 12,1 C12.5522847,1 13,1.44771525 13,2 L14.5,2 C14.7761424,2 15,2.22385763 15,2.5 L15,3.5 C15,3.77614237 14.7761424,4 14.5,4 L9.5,4 C9.22385763,4 9,3.77614237 9,3.5 L9,2.5 C9,2.22385763 9.22385763,2 9.5,2 L11,2 Z" fill="#000000" />
+                                    <rect fill="#000000" opacity="0.3" x="7" y="10" width="5" height="2" rx="1" />
+                                    <rect fill="#000000" opacity="0.3" x="7" y="14" width="9" height="2" rx="1" />
+                                </g>
+
+                            </svg> <span class="menu-text font-size-h4">
+                                Registration
+                            </span>
+                        </span>
+
+                    </a>
+                </li>
+                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                    <a class=" menu-item menu-item-active menu-link text-hover-primary  font-size-h4 bg-hover-dark-o-1 " aria-haspopup="true" style="color:darkgray; " data-menu-toggle="hover" href="/Attendances">
+                        <span class="svg-icon menu-icon  svg-icon-2x" aria-haspopup="true" data-menu-toggle="hover">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24" />
+                                    <path d="M8,3 L8,3.5 C8,4.32842712 8.67157288,5 9.5,5 L14.5,5 C15.3284271,5 16,4.32842712 16,3.5 L16,3 L18,3 C19.1045695,3 20,3.8954305 20,5 L20,21 C20,22.1045695 19.1045695,23 18,23 L6,23 C4.8954305,23 4,22.1045695 4,21 L4,5 C4,3.8954305 4.8954305,3 6,3 L8,3 Z" fill="#000000" opacity="0.3" />
+                                    <path d="M10.875,15.75 C10.6354167,15.75 10.3958333,15.6541667 10.2041667,15.4625 L8.2875,13.5458333 C7.90416667,13.1625 7.90416667,12.5875 8.2875,12.2041667 C8.67083333,11.8208333 9.29375,11.8208333 9.62916667,12.2041667 L10.875,13.45 L14.0375,10.2875 C14.4208333,9.90416667 14.9958333,9.90416667 15.3791667,10.2875 C15.7625,10.6708333 15.7625,11.2458333 15.3791667,11.6291667 L11.5458333,15.4625 C11.3541667,15.6541667 11.1145833,15.75 10.875,15.75 Z" fill="#000000" />
+                                    <path d="M11,2 C11,1.44771525 11.4477153,1 12,1 C12.5522847,1 13,1.44771525 13,2 L14.5,2 C14.7761424,2 15,2.22385763 15,2.5 L15,3.5 C15,3.77614237 14.7761424,4 14.5,4 L9.5,4 C9.22385763,4 9,3.77614237 9,3.5 L9,2.5 C9,2.22385763 9.22385763,2 9.5,2 L11,2 Z" fill="#000000" />
+                                </g>
+                            </svg> <span class="menu-text font-size-h4">Attendence</span>
+                        </span>
+                    </a>
+                </li>
+
+                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <span class="svg-icon menu-icon">
+                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 22.42">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24" />
+                                    <path d="M6.182345,4.09500888 C6.73256296,3.42637697 7.56648864,3 8.5,3 L15.5,3 C16.4330994,3 17.266701,3.42600075 17.8169264,4.09412386 C17.8385143,4.10460774 17.8598828,4.11593789 17.8809917,4.1281251 L22.5900048,6.8468751 C23.0682974,7.12301748 23.2321726,7.73460788 22.9560302,8.21290051 L21.2997802,11.0816097 C21.0236378,11.5599023 20.4120474,11.7237774 19.9337548,11.4476351 L18.5,10.6198563 L18.5,19 C18.5,19.5522847 18.0522847,20 17.5,20 L6.5,20 C5.94771525,20 5.5,19.5522847 5.5,19 L5.5,10.6204852 L4.0673344,11.4476351 C3.58904177,11.7237774 2.97745137,11.5599023 2.70130899,11.0816097 L1.04505899,8.21290051 C0.768916618,7.73460788 0.932791773,7.12301748 1.4110844,6.8468751 L6.12009753,4.1281251 C6.14061376,4.11628005 6.16137525,4.10524462 6.182345,4.09500888 Z" fill="#000000" opacity="0.3" />
+                                    <path d="M9.85156673,3.2226499 L9.26236944,4.10644584 C9.11517039,4.32724441 9.1661011,4.62457583 9.37839459,4.78379594 L11,6 L10.0353553,12.7525126 C10.0130986,12.9083095 10.0654932,13.0654932 10.1767767,13.1767767 L11.6464466,14.6464466 C11.8417088,14.8417088 12.1582912,14.8417088 12.3535534,14.6464466 L13.8232233,13.1767767 C13.9345068,13.0654932 13.9869014,12.9083095 13.9646447,12.7525126 L13,6 L14.6216054,4.78379594 C14.8338989,4.62457583 14.8848296,4.32724441 14.7376306,4.10644584 L14.1484333,3.2226499 C14.0557004,3.08355057 13.8995847,3 13.7324081,3 L10.2675919,3 C10.1004153,3 9.94429962,3.08355057 9.85156673,3.2226499 Z" fill="#000000" />
+                                </g>
+
+                                <rect class="cls-2" x="14.77" y="12.52" width="2.86" height="1.52" rx="0.76"></rect>
+                            </svg>
+                        </span>
+
+                        <span class="menu-text font-size-h4">Student</span>
+                        <i class=" menu-arrow"></i>
+                    </a>
+                    <div class="menu-submenu" kt-hidden-height="360">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav ">
+                            <li>
+                                <a class=" menu-item menu-item-active menu-link text-hover-primary  bg-hover-dark-o-1 " aria-haspopup="true" style="color:darkgray; " data-menu-toggle="hover" href="/StudentInformations">
+                                    <span class="svg-icon  svg-icon-2x">
+                                        <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Communication/Contact1.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10" />
+                                                <path d="M12,11 C10.8954305,11 10,10.1045695 10,9 C10,7.8954305 10.8954305,7 12,7 C13.1045695,7 14,7.8954305 14,9 C14,10.1045695 13.1045695,11 12,11 Z M7.00036205,16.4995035 C7.21569918,13.5165724 9.36772908,12 11.9907452,12 C14.6506758,12 16.8360465,13.4332455 16.9988413,16.5 C17.0053266,16.6221713 16.9988413,17 16.5815,17 L7.4041679,17 C7.26484009,17 6.98863236,16.6619875 7.00036205,16.4995035 Z" fill="#000000" opacity="0.3" />
+                                            </g>
+                                        </svg>
+                                        <span class="menu-text font-size-h4">Student Details</span>
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="menu-submenu" kt-hidden-height="360">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav ">
+                            <li>
+                                <a class=" menu-item menu-item-active menu-link text-hover-primary  bg-hover-dark-o-1 " aria-haspopup="true" style="color:darkgray; " data-menu-toggle="hover" href="/Results">
+                                    <span class="svg-icon svg-icon-2x">
+                                        <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Devices/Display1.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <path d="M11,20 L11,17 C11,16.4477153 11.4477153,16 12,16 C12.5522847,16 13,16.4477153 13,17 L13,20 L15.5,20 C15.7761424,20 16,20.2238576 16,20.5 C16,20.7761424 15.7761424,21 15.5,21 L8.5,21 C8.22385763,21 8,20.7761424 8,20.5 C8,20.2238576 8.22385763,20 8.5,20 L11,20 Z" fill="#000000" opacity="0.3" />
+                                                <path d="M3,5 L21,5 C21.5522847,5 22,5.44771525 22,6 L22,16 C22,16.5522847 21.5522847,17 21,17 L3,17 C2.44771525,17 2,16.5522847 2,16 L2,6 C2,5.44771525 2.44771525,5 3,5 Z M4.5,8 C4.22385763,8 4,8.22385763 4,8.5 C4,8.77614237 4.22385763,9 4.5,9 L13.5,9 C13.7761424,9 14,8.77614237 14,8.5 C14,8.22385763 13.7761424,8 13.5,8 L4.5,8 Z M4.5,10 C4.22385763,10 4,10.2238576 4,10.5 C4,10.7761424 4.22385763,11 4.5,11 L7.5,11 C7.77614237,11 8,10.7761424 8,10.5 C8,10.2238576 7.77614237,10 7.5,10 L4.5,10 Z" fill="#000000" />
+                                            </g>
+                                        </svg>
+                                        <span class="menu-text font-size-h4">Results</span>
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </li>
+                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle">
+                        <span class="svg-icon menu-icon svg-icon-2x">
+                            <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Devices/Server.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24" />
+                                    <path d="M5,2 L19,2 C20.1045695,2 21,2.8954305 21,4 L21,6 C21,7.1045695 20.1045695,8 19,8 L5,8 C3.8954305,8 3,7.1045695 3,6 L3,4 C3,2.8954305 3.8954305,2 5,2 Z M11,4 C10.4477153,4 10,4.44771525 10,5 C10,5.55228475 10.4477153,6 11,6 L16,6 C16.5522847,6 17,5.55228475 17,5 C17,4.44771525 16.5522847,4 16,4 L11,4 Z M7,6 C7.55228475,6 8,5.55228475 8,5 C8,4.44771525 7.55228475,4 7,4 C6.44771525,4 6,4.44771525 6,5 C6,5.55228475 6.44771525,6 7,6 Z" fill="#000000" opacity="0.3" />
+                                    <path d="M5,9 L19,9 C20.1045695,9 21,9.8954305 21,11 L21,13 C21,14.1045695 20.1045695,15 19,15 L5,15 C3.8954305,15 3,14.1045695 3,13 L3,11 C3,9.8954305 3.8954305,9 5,9 Z M11,11 C10.4477153,11 10,11.4477153 10,12 C10,12.5522847 10.4477153,13 11,13 L16,13 C16.5522847,13 17,12.5522847 17,12 C17,11.4477153 16.5522847,11 16,11 L11,11 Z M7,13 C7.55228475,13 8,12.5522847 8,12 C8,11.4477153 7.55228475,11 7,11 C6.44771525,11 6,11.4477153 6,12 C6,12.5522847 6.44771525,13 7,13 Z" fill="#000000" />
+                                    <path d="M5,16 L19,16 C20.1045695,16 21,16.8954305 21,18 L21,20 C21,21.1045695 20.1045695,22 19,22 L5,22 C3.8954305,22 3,21.1045695 3,20 L3,18 C3,16.8954305 3.8954305,16 5,16 Z M11,18 C10.4477153,18 10,18.4477153 10,19 C10,19.5522847 10.4477153,20 11,20 L16,20 C16.5522847,20 17,19.5522847 17,19 C17,18.4477153 16.5522847,18 16,18 L11,18 Z M7,20 C7.55228475,20 8,19.5522847 8,19 C8,18.4477153 7.55228475,18 7,18 C6.44771525,18 6,18.4477153 6,19 C6,19.5522847 6.44771525,20 7,20 Z" fill="#000000" />
+                                </g>
+                            </svg>
+                        </span>
+
+                        <span class="menu-text font-size-h4">School</span>
+                        <i class=" menu-arrow"></i>
+                    </a>
+                    <div class="menu-submenu" kt-hidden-height="360">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav ">
+                            <li>
+                                <a class="  menu-item menu-item-active menu-link text-hover-primary  bg-hover-dark-o-1 " aria-haspopup="true" style="color:darkgray; " data-menu-toggle="hover" href="/Subjects">
+                                    <span class="svg-icon svg-icon-2x">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+
+                                            </g>
+                                        </svg>
+                                        <span class="menu-text font-size-h4">Subjects</span>
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="menu-submenu" kt-hidden-height="360">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav ">
+                            <li>
+                                <a class=" menu-item menu-item-active menu-link text-hover-primary  bg-hover-dark-o-1 " aria-haspopup="true" style="color:darkgray; " data-menu-toggle="hover" href="/Departments">
+                                    <span class="svg-icon svg-icon-2x">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+
+                                            </g>
+                                        </svg>
+                                        <span class="menu-text font-size-h4">Departments</span>
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="menu-submenu" kt-hidden-height="360">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav ">
+                            <li>
+                                <a class=" menu-item menu-item-active menu-link text-hover-primary  bg-hover-dark-o-1 " aria-haspopup="true" style="color:darkgray; " data-menu-toggle="hover" href="/Classes">
+                                    <span class="svg-icon svg-icon-2x">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+
+                                            </g>
+                                        </svg>
+                                        <span class="menu-text font-size-h4"> Classes</span>
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="menu-submenu" kt-hidden-height="360">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav ">
+                            <li>
+                                <a class=" menu-item menu-item-active menu-link text-hover-primary  bg-hover-dark-o-1 " aria-haspopup="true" style="color:darkgray; " data-menu-toggle="hover" href="/Roles">
+                                    <span class="svg-icon svg-icon-2x">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+
+                                            </g>
+                                        </svg>
+                                        <span class="menu-text font-size-h4"> Roles</span>
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </li>
+                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                    <a href="javascript:;" class="menu-link menu-toggle ">
+                        <span class="svg-icon menu-icon svg-icon-2x ">
+                            <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Communication/Group.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                    <path d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                    <path d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero" />
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="menu-text font-size-h4">Staff</span>
+                        <i class=" menu-arrow"></i>
+                    </a>
+                    <div class="menu-submenu" kt-hidden-height="360">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav ">
+                            <li>
+                                <a class=" menu-item menu-item-active menu-link text-hover-primary  bg-hover-dark-o-1 " aria-haspopup="true" style="color:darkgray; " data-menu-toggle="hover" href="/StaffInformations">
+                                    <span class="svg-icon  svg-icon-2x">
+                                        <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Communication/Contact1.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10" />
+                                                <path d="M12,11 C10.8954305,11 10,10.1045695 10,9 C10,7.8954305 10.8954305,7 12,7 C13.1045695,7 14,7.8954305 14,9 C14,10.1045695 13.1045695,11 12,11 Z M7.00036205,16.4995035 C7.21569918,13.5165724 9.36772908,12 11.9907452,12 C14.6506758,12 16.8360465,13.4332455 16.9988413,16.5 C17.0053266,16.6221713 16.9988413,17 16.5815,17 L7.4041679,17 C7.26484009,17 6.98863236,16.6619875 7.00036205,16.4995035 Z" fill="#000000" opacity="0.3" />
+                                            </g>
+                                        </svg>
+                                        <span class="menu-text font-size-h4">Staff Details</span>
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </li>
+
+            </ul>
+
+            <div style="margin-left:200px" class="navbar-fixed-top  card card-custom gutter-b">
+                <div class="card-body">
+
+                    @RenderBody()
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <br /> <br />
+    <script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
+    <script>
+        var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };
+    </script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.min.js")
+    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap4.js")
+    @Scripts.Render("~/bundles/keenthemesjs")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/unobtrusiveajax")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/assets/js/scripts.bundle.js")
+    @Scripts.Render("~/assets/plugins/custom/prismjs/prismjs.bundle.js")
+    @Scripts.Render("~/assets/js/scripts.bundle.js")
+    @Scripts.Render("~/assets/plugins/custom/datatables/datatables.bundle.js")
+    @Scripts.Render("~/assets/js/pages/crud/datatables/advanced/column-rendering.js")
+    @Scripts.Render("~/assets/js/pages/crud/datatables/extensions/buttons.js")
+    @Scripts.Render("~/assets/plugins/custom/jstree/jstree.bundle.js")
+    @Scripts.Render("~/assets/js/pages/features/miscellaneous/treeview.js")
+    @Scripts.Render("~/bundles/Scripts")
+    <script src="~/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <!--end::Page Vendors-->
+    <!--begin::Page Scripts(used by this page)-->
+    <script src="~/assets/js/pages/crud/datatables/basic/basic.js"></script>
+    
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

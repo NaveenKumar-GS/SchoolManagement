@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "Tata Steel",
+      "position": "Finance",
+      "salary": "Role 1",
+      "start_date": "",
+      "office": "",
+      "extn": ""
+    },
+    {
+      "id": "2",
+      "name": "Aditya Birla",
+      "position": "Production",
+      "salary": "Role 1",
+      "start_date": "",
+      "office": "",
+      "extn": ""
+    },
+    {
+      "id": "3",
+      "name": "Ashok Leyland",
+      "position": "Finance",
+      "salary": "",
+      "start_date": "",
+      "office": "",
+      "extn": ""
+    }
+   
+  ]
+}
