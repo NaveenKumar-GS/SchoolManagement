@@ -4,45 +4,60 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div id="kt_header" class="header header-fixed">
+    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+        <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+            <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
+                <span id="CustomerName" style="margin-top:1rem;margin-left:200px;font-size:30px;font-weight:500">Attendance</span>
+            </div>
+        </div>
+        <div class="topbar">
+            <div class="topbar-item">
 
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+       
+    <ul class="nav nav-tabs nav-bold nav-tabs-line nav-tabs-line-3x">
+
+        <li class="nav-item mr-3">
+            <a class="nav-link  active" data-toggle="tab" href="#fill">
+                <span class="nav-icon">
+                    <span class="icon-2x text-dark-50 flaticon-edit-1">
+
+                    </span>
+                </span>
+                <span class=" font-weight-boldest bg-white font-size-h5">  Fill Attendance</span>
+            </a>
+        </li>
+        <li class="nav-item mr-3">
+            <a class="nav-link  " data-toggle="tab" href="#view">
+                <span class="icon-2x text-dark-50 ki ki-eye">
+                    <i class=""></i>
+                </span>
+                <span class="font-weight-boldest bg-white font-size-h5">  Attendance View</span>
+            </a>
+        </li>
+
+    </ul>
+        </div>
+</div>
 <div class="container">
     <!--begin::Card-->
     <div class="card card-custom">
         <!--begin::Card header-->
-        <div class="card-header card-header-tabs-line nav-tabs-line-3x">
-            <!--begin::Toolbar-->
-            <div class="card-toolbar">
-                <ul class="nav nav-tabs nav-bold nav-tabs-line nav-tabs-line-3x">
-
-                    <li class="nav-item mr-3">
-                        <a class="nav-link active" data-toggle="tab" href="#fill">
-                            <span class="nav-icon">
-                                <span class="icon-2x text-dark-50 flaticon-edit-1">
-
-                                </span>
-                            </span>
-                            <span class=" font-weight-boldest font-size-h5">  Fill Attendance</span>
-                        </a>
-                    </li>
-                    <li class="nav-item mr-3">
-                        <a class="nav-link " data-toggle="tab" href="#view">
-                            <span class="icon-2x text-dark-50 ki ki-eye">
-                                <i class=""></i>
-                            </span>
-                            <span class="font-weight-boldest font-size-h5">  Attendance View</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-            <!--end::Toolbar-->
-        </div>
+        
         <div class="card-body">
 
             <div class="tab-content">
-                <div class="tab-pane active" id="fill" role="tabpanel">
+                <div class="tab-pane bg-white  active bg-white" id="fill" role="tabpanel">
                     <div class="card-body">
-                        <p class="btn   font-size-h4  btn-light btn-shadow font-weight-boldest mr-2" style="margin-left:270px">
+
+                        <p class="btn   font-size-h4  btn-light btn-shadow font-weight-boldest mr-2" style="margin-left: 150px">
 
 
                             <a style="color:red" href="/Attendances/Create">
@@ -53,24 +68,26 @@
                         </p>
                     </div>
                 </div>
-                <div class="tab-pane" id="view" role="tabpanel">
+                <div class="tab-pane bg-white bg-white" id="view" role="tabpanel">
                     <div class="card-body">
 
                         <!--begin: Datatable-->
                         <table class="table table-checkable" id="example">
                             <thead>
                                 <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.UserRegistration.FullName)
+                                    <th style="font-weight:900">
+                                        
+                                        Full Name
                                     </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.DateTime)
+                                    <th style="font-weight:900">
+                                       
+                                        Date
                                     </th>
-                                    <th>
-                                        @Html.DisplayNameFor(model => model.Attendance1)
+                                    <th style="font-weight:900">
+                                       Status
                                     </th>
 
-                                    <th>Options</th>
+                                    <th style="font-weight:900">Options</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -142,17 +159,12 @@
 </div>
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script>
-        $(document).ready(function () {
-            $('#example').DataTable({
-                Searching: true,
-                paging: true,
-
-                sort: true,
-                scrollY: 400,
-                columnDefs: [{
-                    targets: [1,2,3],
-                    sortable: false,
-                    searchable: true,
-                }]
-            });
-        });</script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            columnDefs: [{
+                targets: [1, 2, 3],
+                sortable: false,
+                searchable: true,
+            }]
+        });
+    });</script>

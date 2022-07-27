@@ -3,57 +3,102 @@
 @{
     ViewBag.Title = "Details";
 }
+<div id="kt_header" class="header header-fixed">
+    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+        <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+            <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
+                <span id="CustomerName" style="margin-top:1rem;margin-left:200px;font-size:30px;font-weight:500">Registration</span>
+            </div>
+        </div>
+        <div class="topbar">
+            <div class="topbar-item">
 
-@<h2>Details</h2>
-
-<div>
-    <h4>UserRegistration</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EmailId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmailId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Role1.RoleName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Role1.RoleName)
-        </dd>
-
-    </dl>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-2">
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"> </h5>
+            <span style="font-size:20px" class="text-dark font-weight-boldest ">@Html.DisplayFor(model => model.FullName)</span>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="btn-group ml-2">
 
+                <div class="container-fluid d-flex flex-wrap flex-sm-nowrap">
+
+                   
+                    <a href="@Url.Action("Index", "UserRegistrations")" class="btn btn-dark font-weight-bold btn-sm px-3 font-size-base" style="margin-left: 700px">Back</a>
+                    <div class="btn-group ml-2">
+                        <a href="@Url.Action("Edit", "UserRegistrations", new { id = Model.UserId })" class="btn btn-primary font-weight-bold btn-sm px-3 font-size-base" >Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div style="margin-left: 200px; margin-right: 350px;" class="shadow">
+    <div>
+        <h2 style="font-weight: 800; text-align: center">
+            <br />
+            
+                @Html.DisplayFor(model => model.FullName)'s
+                Registration
+                Details
+        </h2>
+        <hr />
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    Full Name :
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FullName)
+                </dd>
+
+                <dt>
+                    Phone Number :
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+               
+                <dt >
+                    Password :
+                </dt>
+
+                <dd id="passhow">
+                    @Html.DisplayFor(model => model.Password)
+                </dd>
+                
+                <dt>
+                    Email Id :
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EmailId)
+                </dd>
+
+                <dt>
+                    Role :
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Role1.RoleName)
+                </dd>
+
+            </dl>
+        </div>
+        <br />
+
+    </div>
+</div>
+<script>
+    function
+</script>

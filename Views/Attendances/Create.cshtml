@@ -8,54 +8,90 @@
 {
     @Html.AntiForgeryToken()
 
-    <h3 class="card-label font-weight-boldest">
-        Attendance
-    </h3>
+<div id="kt_header" class="header header-fixed">
+    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+        <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+            <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
+                <span id="CustomerName" style="margin-top:1rem;margin-left:200px;font-size:30px;font-weight:500">Attendance</span>
+            </div>
+        </div>
+        <div class="topbar">
+            <div class="topbar-item">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-2">
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"> </h5>
+            <span style="font-size:20px" class="text-dark font-weight-boldest ">Create</span>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="btn-group ml-2">
+
+                <div class="container-fluid d-flex flex-wrap flex-sm-nowrap">
+
+                    <a href="@Url.Action("Index", "Attendances")" class="btn btn-dark font-weight-bold btn-sm px-3 font-size-base" style="margin-left: 700px">Back</a>
+                    <div class="btn-group ml-2">
+                        <input type="submit" value="Save" class="btn btn-primary font-weight-bold btn-sm px-3 font-size-base" onclick="return encrypt()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+   
+
 
     <div class="form-horizontal">
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.AttendenceId, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AttendenceId, "Attendence Id", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.AttendenceId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.AttendenceId, new { htmlAttributes = new { @class = "form-control", Placeholder = "Enter Attendance Id" } })
                 @Html.ValidationMessageFor(model => model.AttendenceId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.FullName, "FullName", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.FullName, "Full Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("FullName", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("FullName", null, "-Select Your Name-", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
             </div>
         </div>
 
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DateTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DateTime, "Date", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DateTime, new { htmlAttributes = new { @class = "form-control", Placeholder = "Enter Date (yyyy/mm/dd)" } })
                 @Html.ValidationMessageFor(model => model.DateTime, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Attendance1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Status<span class="text-danger">*</span></label>
+
+            @* @Html.LabelFor(model => model.Attendance1, "Status", htmlAttributes: new { @class = "control-label col-md-2" })*@
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Attendance1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Attendance1, new { htmlAttributes = new { @class = "form-control " } })
+                <div class="valid-feedback">Success! You've done it.</div>
+
                 @Html.ValidationMessageFor(model => model.Attendance1, "", new { @class = "text-danger" })
             </div>
         </div>
         <br /><br />
 
-        <a href="https://localhost:44360/Attendances" class="btn btn-default font-weight-bold btn-sm px-3 font-size-base">Back</a>
 
-        <input type="submit" value="Create" class="btn btn-default" />
 
-        </div>
-        }
 
-        @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-        }
+    </div>
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

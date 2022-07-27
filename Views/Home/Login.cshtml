@@ -1,0 +1,55 @@
+﻿@*@{
+    ViewBag.Title = "LogPage";
+}*@
+<h2>LogPage</h2>
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <form id="LogInEntry" method="post" enctype="multipart/form-data" onsubmit="return AjaxPost(this)">
+
+
+                <label>Email</label><br />
+                <input id="Email" name="Email" class="form-control" placeholder="Email" />
+
+                <label>Password</label><br />
+                <input id="Password" name="Password" type="password" class="form-control" placeholder="Password" />
+
+                <button class="btn btn-danger">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function AjaxPost(formData) {
+        var ajaxConfig = {
+            type: "post",
+            url: "/Home/LogInProcess",
+            data: new FormData(formData),
+            success: function (result) {
+                alert(result);
+                if (result == "Successfully Login as Admin") {
+                    window.location.href = "/Register/Admin"
+                 } else if (result == "Not Able To LogIn" ) {
+                    window.location.href = "/Register/LogPage"
+                }
+                else
+                {
+                    window.location.href = "/Home/Index"
+                }
+            }
+        }
+        if ($(formData).attr('enctype') == "multipart/form-data") {
+            ajaxConfig["contentType"] = false;
+            ajaxConfig["processData"] = false;
+
+        }
+        $.ajax(ajaxConfig);
+        return false;
+
+    }
+</script>
+

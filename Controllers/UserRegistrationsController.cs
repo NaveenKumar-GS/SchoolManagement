@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Schoolmanagementn;
+using Schoolmanagementn.comman;
 
 namespace Schoolmanagementn.Controllers
 {
@@ -29,14 +30,24 @@ namespace Schoolmanagementn.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             UserRegistration userRegistration = db.UserRegistrations.Find(id);
+            
             if (userRegistration == null)
             {
                 return HttpNotFound();
             }
+            Password decoded = new Password();
+            var decryptedPassword = decoded.Decode(userRegistration.Password);
+            userRegistration.Password = decryptedPassword;
+            Password decodeStrin = new Password();
+            var decryptedString = decodeStrin.decodestring(userRegistration.Password);
+            userRegistration.Password = decryptedString;
+
             return View(userRegistration);
         }
+        
 
         // GET: UserRegistrations/Create
+       
         public ActionResult Create()
         {
             ViewBag.Role = new SelectList(db.Roles, "RoleId", "RoleName");
@@ -48,14 +59,21 @@ namespace Schoolmanagementn.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId,FullName,Role,PhoneNumber,Password,EmailId")] UserRegistration userRegistration)
+        // Password encryption
+        
+        public ActionResult Create( UserRegistration userRegistration)
         {
+            
             try
             {
                 if (ModelState.IsValid)
                 {
+                   Password encoded = new Password();
+                    var encryptedPassword=encoded.Encode(userRegistration.Password);
+                    userRegistration.Password = encryptedPassword;
                     db.UserRegistrations.Add(userRegistration);
                     db.SaveChanges();
+                    TempData["AlertMessage"] = "Registered Successfully...!";
                     return RedirectToAction("Index");
                 }
             }
@@ -83,6 +101,14 @@ namespace Schoolmanagementn.Controllers
                 return HttpNotFound();
             }
             ViewBag.Role = new SelectList(db.Roles, "RoleId", "RoleName", userRegistration.Role);
+            Password decoded = new Password();
+            var decryptedPassword = decoded.Decode(userRegistration.Password);
+            userRegistration.Password = decryptedPassword;
+            Password decodeStrin = new Password();
+            var decryptedString = decodeStrin.decodestring(userRegistration.Password);
+            userRegistration.Password = decryptedString;
+
+
             return View(userRegistration);
         }
 
@@ -91,12 +117,16 @@ namespace Schoolmanagementn.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,FullName,Role,PhoneNumber,Password,EmailId")] UserRegistration userRegistration)
+        public ActionResult Edit(UserRegistration userRegistration)
         {
             if (ModelState.IsValid)
             {
+                Password encoded = new Password();
+                var encryptedPassword = encoded.Encode(userRegistration.Password);
+                userRegistration.Password = encryptedPassword;
                 db.Entry(userRegistration).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["AlertMessage"] = "Edited Successfully...!";
                 return RedirectToAction("Index");
             }
             ViewBag.Role = new SelectList(db.Roles, "RoleId", "RoleName", userRegistration.Role);
@@ -126,6 +156,7 @@ namespace Schoolmanagementn.Controllers
             UserRegistration userRegistration = db.UserRegistrations.Find(id);
             db.UserRegistrations.Remove(userRegistration);
             db.SaveChanges();
+            TempData["AlertMessageDelete"] = " Deleted Successfully..!";
             return RedirectToAction("Index");
         }
 

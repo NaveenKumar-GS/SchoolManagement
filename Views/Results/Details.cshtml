@@ -9,42 +9,43 @@
 <div>
     <h4>Result</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TotalMarks)
-        </dt>
+    <div style="margin-left: 200px; margin-right: 350px;" class="shadow">
+        <div>
+            <h2 style="font-weight: 800; text-align: center">
+                <br />
+                @Html.DisplayFor(model => model.Subject.SubjectName)
+                Result of
+                @Html.DisplayFor(model => model.StudentInformation.FullName)
 
-        <dd>
-            @Html.DisplayFor(model => model.TotalMarks)
-        </dd>
+            </h2>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Total Marks :
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Result1)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TotalMarks)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Result1)
-        </dd>
+                <dt>
+                    Status :
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentInformation.FullName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Result1)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentInformation.FullName)
-        </dd>
+            </dl>
+        </div>
+        <div class="form-actions no-color" style="text-align: center">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Subject.SubjectName)
-        </dt>
+            <a href="@Url.Action("Edit", "Results", new { id = Model.ResultId })" class="btn btn-primary font-weight-bold btn-pill">Edit</a>
+            <a href="@Url.Action("Index", "Results")" class="btn btn-dark font-weight-bold btn-pill">Back</a>
 
-        <dd>
-            @Html.DisplayFor(model => model.Subject.SubjectName)
-        </dd>
+        </div>
+        <br />
 
-    </dl>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ResultId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

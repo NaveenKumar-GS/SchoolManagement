@@ -3,7 +3,20 @@
 @{
     ViewBag.Title = "Index";
 }
+<div id="kt_header" class="header header-fixed">
+    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+        <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+            <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
+                <span id="CustomerName" style="margin-top:1rem;margin-left:200px;font-size:30px;font-weight:500">Classes</span>
+            </div>
+        </div>
+        <div class="topbar">
+            <div class="topbar-item">
 
+            </div>
+        </div>
+    </div>
+</div>
 
 <h3 class="card-label font-weight-boldest">
     Class
@@ -19,13 +32,15 @@
     <table class="table  table-checkable" id="example">
         <thead>
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.ClassName)
+                <th style="font-weight:900">
+                   
+                    Class
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.AcademicYear)
+                <th style="font-weight:900">
+                    Academic Year
+                   
                 </th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Options</th>
+                <th style="font-weight:900">&nbsp;&nbsp;Options</th>
             </tr>
         </thead>
         <tbody>

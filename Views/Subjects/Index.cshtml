@@ -4,28 +4,66 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div id="kt_header" class="header header-fixed">
+    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+        <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+            <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
+                <span id="CustomerName" style="margin-top:1rem;margin-left:200px;font-size:30px;font-weight:500">Subjects</span>
+            </div>
+        </div>
+        <div class="topbar">
+            <div class="topbar-item">
 
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-2">
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"> </h5>
+            <span style="font-size:20px" class="text-dark font-weight-boldest mr-4">Index</span>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="btn-group ml-2">
+                <a href="https://localhost:44360/Subjects/create" class="btn btn-light-primary font-weight-bold mr-2" style="margin-left: 800px">
 
-<h3 class="card-label font-weight-boldest">
-    Subjects
-</h3>
-<a href="https://localhost:44360/Subjects/create" class="btn btn-light-primary font-weight-bold mr-2" style="margin-left: 800px">
-    <i class="ki ki-plus icon-sm"></i> Add New Subject
-</a>
+                    <span class="svg-icon svg-icon-md" style="width:20px;height:20px">
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21">
+                            <defs>
+                                <style>
+                                    .clsW-1 {
+                                        fill: #3699ff;
+                                    }
+                                </style>
+                            </defs>
+                            <path class="clsW-1" d="M10.5,21A10.5,10.5,0,1,1,21,10.5,10.51,10.51,0,0,1,10.5,21Zm0-19.36a8.86,8.86,0,1,0,8.86,8.86A8.86,8.86,0,0,0,10.5,1.64Z"></path>
+                            <path class="clsW-1" d="M10.5,16.57a.82.82,0,0,1-.82-.81V5.24a.82.82,0,0,1,1.64,0V15.76A.82.82,0,0,1,10.5,16.57Z"></path>
+                            <path class="clsW-1" d="M15.76,11.32H5.24a.82.82,0,0,1,0-1.64H15.76a.82.82,0,0,1,0,1.64Z"></path>
+                        </svg>
+                    </span>Add New Subject
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="card-body">
 
     <table class="table table-checkable" id="example">
         <thead>
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.SubjectName)
+                <th style="font-weight:900">
+                   
+                    Subject
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Class1.ClassName)
+                <th style="font-weight:900">
+                   
+                    Class
                 </th>
 
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Options</th>
+                <th style="font-weight:900">&nbsp;&nbsp;Options</th>
             </tr>
         </thead>
         <tbody>
@@ -64,8 +102,8 @@
                                 </svg><!--end::Svg Icon-->
                             </span>
                         </a>
-                        <a href="@Url.Action("Delete", "Subjects",new { id = item.SubjectId })">
-                            <span class="svg-icon svg-icon-primary svg-icon-2x">
+                        <a  href="@Url.Action("Delete", "Subjects",new { id = item.SubjectId })">
+                            <span  class="svg-icon svg-icon-primary svg-icon-2x">
                                 <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Home/Trash.svg-->
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -75,6 +113,7 @@
                                     </g>
                                 </svg><!--end::Svg Icon-->
                             </span>
+
                         </a>
 
                     </td>

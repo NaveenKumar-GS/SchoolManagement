@@ -1,1 +1,47 @@
-﻿
+﻿@model Schoolmanagementn.UserRegistration
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_loginpage.cshtml";
+}
+
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+<div class="login-wrapper">
+    <img src="~/image/login-animate.gif" alt="Alternate Text"  style="width:430px"/>
+    <div action="" style="padding:50px" class="form">
+        <h1 style="color: white;font-weight: 900;text-align: center; width:60px">School Management</h1>
+        <br />
+        <br />
+        <div class="input-group">
+            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", Placeholder = "Enter Your Phone number" } })
+
+
+        </div>
+        <div class="input-group">
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control", id = "password", Placeholder = "Enter Your Password" })
+
+
+        </div>
+
+
+        <div style="padding:10px 0px 10px">
+            <p style="color:gray;font-size:smaller">Don't  you have login creadentials? Please<a style="color:white;font-weight:900;text-decoration-line:none" href="@Url.Action("Create", "Login")"> Signup</a> </p>
+            <div style="padding:10px">
+                <input type="submit" value="Login" class="submit-btn" onclick="return encrypt()" />
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+}

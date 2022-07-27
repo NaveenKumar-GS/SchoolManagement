@@ -1,0 +1,249 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Login/Signin</title>
+    <link href="https://e7.pngegg.com/pngimages/183/568/png-clipart-taytay-sm-supermalls-logo-sm-mall-of-asia-design-blue-emblem.png" rel="icon" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-size: cover;
+            background-image:image();
+            background-color:cornflowerblue;
+            font-family: sans-serif;
+        }
+
+        .login-wrapper {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .form {
+            position: relative;
+            width: 433px;
+            height:430px;
+            padding: 15px 40px 40px;
+            background: rgba(0, 0, 0, 0.7);
+            @*border-radius: 10px;*@
+            color: #fff;
+            @*box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);*@
+        }
+        select {
+            background-color: transparent;
+            width: 352px;
+            height: 48px;
+            color: white;
+            border-block-color: transparent;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            width: 100%;
+            padding: 10px 0;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #fff;
+            outline: none;
+            background-color: transparent;
+            color: inherit;
+            font-weight: 900;
+        }
+        option {
+            background-color: black;
+            color:white;
+           
+        }
+        .input-group {
+            height:48px;
+        }
+
+        .form::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.08);
+            transform: skewX(-26deg);
+            transform-origin: bottom left;
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+            .form img {
+                position: absolute;
+                top: -50px;
+                left: calc(50% - 50px);
+                width: 100px;
+                background: rgba(255, 255, 255, 0.8);
+                border-radius: 50%;
+            }
+
+            .form h2 {
+                text-align: center;
+                letter-spacing: 1px;
+                margin-bottom: 2rem;
+                color: white;
+            }
+
+            .form .input-group {
+                position: relative;
+            }
+
+                .form .input-group input {
+                    width: 100%;
+                    padding: 10px 0;
+                    font-size: 1rem;
+                    letter-spacing: 1px;
+                    margin-bottom: 30px;
+                    border: none;
+                    border-bottom: 1px solid #fff;
+                    outline: none;
+                    background-color: transparent;
+                    color: inherit;
+                    font-weight:900;
+                }
+
+                .form .input-group label {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    padding: 10px 0;
+                    font-size: 1rem;
+                    pointer-events: none;
+                    transition: 0.3s ease-out;
+                }
+
+                @*.form .input-group input:focus + label,
+                .form .input-group input:valid + label {
+                    transform: translateY(-18px);
+                    color: white;
+                    font-size: 0.8rem;
+                }*@
+        i {
+            margin-left: -30px;
+            cursor: pointer;
+            color:white;
+        }
+
+        .submit-btn {
+            display: block;
+            margin-left: 120px;
+            border: none;
+            outline: none;
+            background: #ff652f;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 17px 26px;
+            border-radius: 34px;
+            cursor: pointer;
+        }
+
+        .forgot-pw {
+            color: inherit;
+        }
+
+        #forgot-pw {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            z-index: 1;
+            background: #fff;
+            opacity: 0;
+            transition: 0.6s;
+        }
+
+            #forgot-pw:target {
+                height: 100%;
+                opacity: 1;
+            }
+
+        .close {
+            position: absolute;
+            right: 1.5rem;
+            top: 0.5rem;
+            font-size: 2rem;
+            font-weight: 900;
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    <script>
+        var encodedstring;
+        function encrypt() {
+            var pass = document.getElementById('password').value;
+            encodedstring = window.btoa(pass);
+            document.getElementById('password').value = encodedstring;
+
+        }
+        function decrypt() {
+            var decodedstring = window.btoa(encodedstring);
+            document.getElementById("password").value = decodedstring;
+
+        }
+    </script>
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+        togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye / eye slash icon
+            this.classList.toggle('bi-eye');
+        });
+
+
+    </script>
+    <script>
+        var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";
+    </script>
+    <script>
+        var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };
+    </script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.min.js")
+    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap4.js")
+    @Scripts.Render("~/bundles/keenthemesjs")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/unobtrusiveajax")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/assets/js/scripts.bundle.js")
+    @Scripts.Render("~/assets/plugins/custom/prismjs/prismjs.bundle.js")
+    @Scripts.Render("~/assets/js/scripts.bundle.js")
+    @Scripts.Render("~/assets/plugins/custom/datatables/datatables.bundle.js")
+    @Scripts.Render("~/assets/js/pages/crud/datatables/advanced/column-rendering.js")
+    @Scripts.Render("~/assets/js/pages/crud/datatables/extensions/buttons.js")
+    @Scripts.Render("~/assets/plugins/custom/jstree/jstree.bundle.js")
+    @Scripts.Render("~/assets/js/pages/features/miscellaneous/treeview.js")
+    @Scripts.Render("~/bundles/Scripts")
+    <script src="~/assets/plugins/custom/datatables/datatables.bundle.js"></script>
+
+    <script src="~/assets/js/pages/crud/datatables/basic/basic.js"></script>
+
+    <script src="~/Scripts/Alert.js"></script>
+</body>
+</html>

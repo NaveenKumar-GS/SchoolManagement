@@ -1,17 +1,53 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Login";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<div class="row">
+    <div class="col-md-6">
+        <form id="LogInEntry" method="post" enctype="multipart/form-data" onsubmit="return AjaxPost(this)">
+
+
+            <label>Email</label><br />
+            <input id="EmailId" name="EmailId" class="form-control" placeholder="Email" />
+
+            <label>Password</label><br />
+            <input id="Password" name="Password" type="password" class="form-control" placeholder="Password" />
+
+            <button class="btn btn-danger">Add</button>
+        </form>
+    </div>
+</div>
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+<script>
+    function AjaxPost(formData) {
+        var ajaxConfig = {
+            type: "post",
+            url: "/Home/LogInProcess",
+            data: new FormData(formData),
+            success: function (result) {
+                alert(result);
+                if (result == "Successfully Login as Admin") {
+                    window.location.href = "/Register/Admin"
+                } else if (result == "Not Able To LogIn") {
+                    window.location.href = "/Register/LogPage"
+                }
+                else {
+                    window.location.href = "/Home/Index"
+                }
+            }
+        }
+        if ($(formData).attr('enctype') == "multipart/form-data") {
+            ajaxConfig["contentType"] = false;
+            ajaxConfig["processData"] = false;
+
+        }
+        $.ajax(ajaxConfig);
+        return false;
+
+    }
+</script>

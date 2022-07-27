@@ -4,71 +4,187 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div id="kt_header" class="header header-fixed">
+    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+        <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+            <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
+                <span id="CustomerName" style="margin-top:1rem;margin-left:200px;font-size:30px;font-weight:500">Registration</span>
+            </div>
+        </div>
+        <div class="topbar">
+            <div class="topbar-item">
 
-<h3 class="card-label font-weight-boldest">
-    User Registrtaion</h3>
-<a href="https://localhost:44360/UserRegistrations/create" class="btn btn-light-primary font-weight-bold mr-2" style="margin-left: 800px">
-    <i class="ki ki-plus icon-sm"></i> Add New User
-</a>
-    <div class="card-body">
-       
-        <!--begin: Datatable-->
-        <table class="table table-checkable" id="example">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FullName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PhoneNumber)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.EmailId)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Role1.RoleName)
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-
-                @foreach (var item in Model)
-                {
-
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FullName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PhoneNumber)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.EmailId)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Role1.RoleName)
-                        </td>
-                    </tr>
-                }
-            </tbody>
-
-        </table>
+            </div>
+        </div>
     </div>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#example').DataTable({
-                Searching: true,
-                paging: true,
+</div>
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-2">
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"> </h5>
+            <span style="font-size:20px" class="text-dark font-weight-boldest mr-4">Index</span>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="btn-group ml-2">
+                <a href="https://localhost:44360/UserRegistrations/create" class="btn btn-light-primary font-weight-bold mr-2" style="margin-left: 800px">
 
-                sort: true,
-                scrollY: 400,
-                columnDefs: [{
-                    targets: [1,2,3],
-                    sortable: false,
-                    searchable: true,
-                }]
-            });
-        });</script>
+                    <span class="svg-icon svg-icon-md" style="width:20px;height:20px">
+                        <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21">
+                            <defs>
+                                <style>
+                                    .clsW-1 {
+                                        fill: #3699ff;
+                                    }
+                                </style>
+                            </defs>
+                            <path class="clsW-1" d="M10.5,21A10.5,10.5,0,1,1,21,10.5,10.51,10.51,0,0,1,10.5,21Zm0-19.36a8.86,8.86,0,1,0,8.86,8.86A8.86,8.86,0,0,0,10.5,1.64Z"></path>
+                            <path class="clsW-1" d="M10.5,16.57a.82.82,0,0,1-.82-.81V5.24a.82.82,0,0,1,1.64,0V15.76A.82.82,0,0,1,10.5,16.57Z"></path>
+                            <path class="clsW-1" d="M15.76,11.32H5.24a.82.82,0,0,1,0-1.64H15.76a.82.82,0,0,1,0,1.64Z"></path>
+                        </svg>
+                    </span>Add User
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card-body">
+
+    <!--begin: Datatable-->
+    <table class="table table-checkable" id="example">
+        <thead style="font-weight:900">
+            <tr>
+                <th style="font-weight:900">
+                    Full Name
+
+                </th>
+                <th style="font-weight:900">
+                    Phone Number
+                </th>
+                <th style="font-weight:900">
+                    Email Id
+
+                </th>
+                <th style="font-weight:900">
+                    Role
+                </th>
+
+                <th style="font-weight:900">&nbsp;&nbsp;Options</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmailId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Role1.RoleName)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("edit", "UserRegistrations",new { id = item.UserId  })" onclick="return decrypt()">
+                            <span class="svg-icon svg-icon-primary svg-icon-2x">
+                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Design/Edit.svg-->
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24" />
+                                        <path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) " />
+                                        <rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1" />
+
+                                    </g>
+                                </svg><!--end::Svg Icon-->
+                            </span>
+                        </a>
+                        <a href="@Url.Action("Details", "UserRegistrations",new { id = item.UserId  })">
+                            <span class="svg-icon svg-icon-primary svg-icon-2x">
+                                <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/General/Visible.svg-->
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24" />
+                                        <path d="M3,12 C3,12 5.45454545,6 12,6 C16.9090909,6 21,12 21,12 C21,12 16.9090909,18 12,18 C5.45454545,18 3,12 3,12 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                        <path d="M12,15 C10.3431458,15 9,13.6568542 9,12 C9,10.3431458 10.3431458,9 12,9 C13.6568542,9 15,10.3431458 15,12 C15,13.6568542 13.6568542,15 12,15 Z" fill="#000000" opacity="0.3" />
+                                    </g>
+                                </svg><!--end::Svg Icon-->
+                            </span>
+                        </a>
+                        <a href="@Url.Action("Delete", "UserRegistrations",new { id = item.UserId  })"  id="kt_sweetalert_demo_9">
+                            <span class="svg-icon svg-icon-primary svg-icon-2x">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24" />
+                                        <path d="M6,8 L18,8 L17.106535,19.6150447 C17.04642,20.3965405 16.3947578,21 15.6109533,21 L8.38904671,21 C7.60524225,21 6.95358004,20.3965405 6.89346498,19.6150447 L6,8 Z M8,10 L8.45438229,14.0894406 L15.5517885,14.0339036 L16,10 L8,10 Z" fill="#000000" fill-rule="nonzero" />
+                                        <path d="M14,4.5 L14,3.5 C14,3.22385763 13.7761424,3 13.5,3 L10.5,3 C10.2238576,3 10,3.22385763 10,3.5 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3" />
+                                    </g>
+                                </svg>
+                            </span>
+                        </a>
+@**@ @*<button type="button" class="btn btn-light-primary font-weight-bold" id="kt_sweetalert_demo_9">Delete</button>
+*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+   @* @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div style="margin-left: 281px;margin-right: 308px;" class="shadow">
+            <div aria-labelledby="swal2-title" aria-describedby="swal2-content" class="swal2-popup swal2-modal swal2-icon-warning swal2-show" tabindex="-1" role="dialog" aria-live="assertive" aria-modal="true" style="display: flex;">
+                <div class="swal2-header">
+                    <ul class="swal2-progress-steps" style="display: none;"></ul>
+                    <div class="swal2-icon swal2-warning swal2-icon-show" style="display: flex;"><div class="swal2-icon-content">!</div></div>
+                    <img class="swal2-image" style="display: none;"><h2 class="swal2-title" id="swal2-title" style="display: block;">Are you sure?</h2>
+                    <button type="button" class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button>
+                </div>
+                <div class="swal2-content">
+                    <div id="swal2-content" class="swal2-html-container" style="display: block;"> you want to delete this?</div><input class="swal2-input" style="display: none;"><input type="file" class="swal2-file" style="display: none;"><div class="swal2-range" style="display: none;"><input type="range"><output></output></div>
+                    <select class="swal2-select" style="display: none;"></select><div class="swal2-radio" style="display: none;"></div><label for="swal2-checkbox" class="swal2-checkbox" style="display: none;"><input type="checkbox"><span class="swal2-label"></span></label><textarea class="swal2-textarea" style="display: none;"></textarea>
+                    <div class="swal2-validation-message" id="swal2-validation-message" style="display: none;"></div>
+                </div>
+                <div class="swal2-actions">
+                    <div class="swal2-loader"></div>
+                    <button type="submit" class="swal2-confirm swal2-styled" aria-label="" style="display: inline-block;">Yes, delete it!</button>
+                    <button type="button" class="swal2-deny swal2-styled" aria-label="" style="display: none;">No</button>
+
+                    <a href="@Url.Action("Index", "UserRegistrations")" class=" swal2-cancel swal2-styled" aria-label="" style="display: inline-block;">Cancel</a>
+                </div>
+                <div class="swal2-footer" style="display: none;"></div>
+                <div class="swal2-timer-progress-bar-container">
+                    <div class="swal2-timer-progress-bar" style="display: none;"></div>
+                </div>
+            </div>
+
+        </div>
+    }*@
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            Searching: true,
+            paging: true,
+
+            sort: true,
+            scrollY: 400,
+            columnDefs: [{
+                targets: [1, 2, 3,4],
+                sortable: false,
+                searchable: true,
+            }]
+        });
+    });</script>
 
 

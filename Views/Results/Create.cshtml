@@ -4,69 +4,78 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
+
     <div class="form-horizontal">
-        <h4>Result</h4>
-        <hr />
+        <h3 class="card-label font-weight-boldest">
+            Add New Result
+        </h3>
+        <div class="container-fluid d-flex flex-wrap flex-sm-nowrap">
+
+            <a href="@Url.Action("Index", "Results")" class="btn btn-dark font-weight-bold btn-sm px-3 font-size-base" style="margin-left: 700px">Back</a>
+            <div class="btn-group ml-2">
+                <input type="submit" value="Save" class="btn btn-primary font-weight-bold btn-sm px-3 font-size-base" />
+            </div>
+        </div>
+        <br />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.ResultId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group row rowcostumclass">
+
+            <label class="control-label col-md-2">Result Id<span class="text-danger">*</span></label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ResultId, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ResultId, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.StudentName, "StudentName", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group row rowcostumclass">
+
+            <label class="control-label col-md-2">Student Name<span class="text-danger">*</span></label>
             <div class="col-md-10">
-                @Html.DropDownList("StudentName", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("StudentName", null, "-Select Student Name-", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.StudentName, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.SubjectName, "SubjectName", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group row rowcostumclass">
+
+            <label class="control-label col-md-2">Subject Name<span class="text-danger">*</span></label>
             <div class="col-md-10">
-                @Html.DropDownList("SubjectName", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("SubjectName", null, "-Select Subject-", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.SubjectName, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.TotalMarks, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group row rowcostumclass">
+
+            <label class="control-label col-md-2">Total Marks<span class="text-danger">*</span></label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.TotalMarks, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.TotalMarks, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Result1, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group row rowcostumclass">
+
+            <label class="control-label col-md-2">Status<span class="text-danger">*</span></label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Result1, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Result1, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
         </div>
-    </div>
-}
+       
+        }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

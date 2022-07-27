@@ -4,31 +4,75 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div id="kt_header" class="header header-fixed">
+    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+        <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+            <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
+                <span id="CustomerName" style="margin-top:1rem;margin-left:200px;font-size:30px;font-weight:500">Subject</span>
+            </div>
+        </div>
+        <div class="topbar">
+            <div class="topbar-item">
 
-<div>
-    <h4>Subject</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.SubjectName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SubjectName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Class1.ClassName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Class1.ClassName)
-        </dd>
-
-    </dl>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SubjectId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-2">
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"> </h5>
+            <span style="font-size:20px" class="text-dark font-weight-boldest ">@Html.DisplayFor(model => model.SubjectName)</span>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="btn-group ml-2">
+
+                <div class="container-fluid d-flex flex-wrap flex-sm-nowrap">
+
+
+                    <a href="@Url.Action("Index", "Subjects")" class="btn btn-dark font-weight-bold btn-sm px-3 font-size-base" style="margin-left: 700px">Back</a>
+                    <div class="btn-group ml-2">
+                         <a href="@Url.Action("Edit", "Subjects", new { id = Model.SubjectId })" class="btn btn-primary font-weight-bold btn-sm px-3 font-size-base">Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div style="margin-left: 200px; margin-right: 350px;" class="shadow">
+    <div>
+        <h2 style="font-weight: 800; text-align: center">
+            <br />
+            Details of
+            @Html.DisplayFor(model => model.SubjectName)
+
+
+        </h2>
+        <hr />
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    Subject :
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SubjectName)
+                </dd>
+
+                <dt>
+                    Class :
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Class1.ClassName)
+                </dd>
+
+            </dl>
+        </div>
+        
+        <br />
+    </div>
+</div>
+

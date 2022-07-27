@@ -4,9 +4,23 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div id="kt_header" class="header header-fixed">
+    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+        <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+            <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
+                <span id="CustomerName" style="margin-top:1rem;margin-left:200px;font-size:30px;font-weight:500">Student Information</span>
+            </div>
+        </div>
+        <div class="topbar">
+            <div class="topbar-item">
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <h3 class="card-label font-weight-boldest">
-    Student Information
+    
 </h3>
 
 <a href="https://localhost:44360/StudentInformations/Create" class="btn btn-light-primary font-weight-bold mr-2" style="margin-left: 800px">
@@ -18,29 +32,29 @@
     <table class="table table-checkable" id="example">
         <thead>
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.FullName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DateOfBirth)
+                
+                <th style="font-weight:900">
+                    Full Name 
+
                 </th>
 
-                <th>
-                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                <th style="font-weight:900">
+                    Phone Number 
+                    
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Address)
+                <th style="font-weight:900">
+                    Address 
+                   
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DateOfAdmission)
-                </th>
-              
 
-                <th>
-                    @Html.DisplayNameFor(model => model.Class.ClassName)
+
+
+                <th style="font-weight:900">
+                    Class 
+                    
                 </th>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Options</th>
-               
+                <th style="font-weight:900">&nbsp;&nbsp;Options</th>
+
             </tr>
         </thead>
         <tbody>
@@ -50,17 +64,12 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.FullName)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DateOfBirth)
-                    </td>
+                   
                     <td>
                         @Html.DisplayFor(modelItem => item.PhoneNumber)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Address)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DateOfAdmission)
                     </td>
                    
 
@@ -80,7 +89,7 @@
                                     </g>
                                 </svg><!--end::Svg Icon-->
                             </span>
-                        </a>|
+                        </a>
                         <a href="@Url.Action("Details", "StudentInformations",new { id = item.StudentId })">
                             <span class="svg-icon svg-icon-primary svg-icon-2x">
                                 <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/General/Visible.svg-->
@@ -92,7 +101,7 @@
                                     </g>
                                 </svg><!--end::Svg Icon-->
                             </span>
-                        </a>|
+                        </a>
                         <a href="@Url.Action("Delete", "StudentInformations",new { id = item.StudentId })">
                             <span class="svg-icon svg-icon-primary svg-icon-2x">
                                 <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Home/Trash.svg-->
@@ -122,7 +131,7 @@
                 sort: true,
                 scrollY: 400,
                 columnDefs: [{
-                    targets: [1,2,3,4,5,6],
+                    targets: [1,2,3,4],
                     sortable: false,
                     searchable: true,
                 }]

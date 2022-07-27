@@ -1,0 +1,75 @@
+﻿
+
+@model Schoolmanagementn.Models.RegistrationViewModel
+
+@{
+    ViewBag.Title = "Create";
+
+    Layout = "~/Views/Shared/_loginpage.cshtml";
+}
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="login-wrapper">
+    <img src="~/image/login-animate.gif" alt="Alternate Text" style="width:430px" />
+    
+
+    <div action="" class="form">
+        <h3 style="color: white;font-weight: 900;text-align: center; width:10px">School Management</h3>
+
+
+        <div class="input-group">
+            @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control", Placeholder = "Enter User Id" } })
+
+            @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+        </div>
+        <div class="input-group">
+            @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", Placeholder = "Enter Full Name" } })
+
+
+        </div>
+        <div class="input-group">
+            @Html.DropDownList("Role", null, "-Select Role-", htmlAttributes: new { @class = "form-control" })
+
+            @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="input-group">
+            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", Placeholder = "Enter Your Phone number" } })
+            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+
+
+        </div>
+
+        <div class="input-group">
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control ", Placeholder = "Enter Your Password", id = "password", } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            
+
+        </div>
+      
+
+        <div class="input-group">
+            @Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @class = "form-control", Placeholder = "Enter Email Id" } })
+            @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+
+
+        </div>
+        <div style="padding:4px ">
+            <p style="color:gray;font-size:smaller">If you already have login creadential just<a style="color:white;font-weight:900;text-decoration-line:none" href="@Url.Action("Index", "Login")"> Login</a> </p>
+
+            <div style="padding:4px ">
+                <input style=" padding: 8px 17px;" type="submit" value="Sign Up" class="submit-btn" onclick="return encrypt()" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+}
+
+
+

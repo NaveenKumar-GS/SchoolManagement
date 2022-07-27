@@ -10,6 +10,7 @@ using Schoolmanagementn;
 
 namespace Schoolmanagementn.Controllers
 {
+    
     public class StaffInformationsController : Controller
     {
         private SchoolmanagementEntities db = new SchoolmanagementEntities();

@@ -1,31 +1,78 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@*<div id="preloader" style="background-color: #ffffff; opacity: .4;"></div>*@
+<div id="kt_header" class="header header-fixed">
+    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+        <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+            <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default text-dark">
+                <span id="CustomerName" style="margin-top:1rem;margin-left:200px;font-size:30px;font-weight:900 ">School Management</span>
+            </div>
+        </div>
+        <div class="topbar">
+            <div class="topbar-item">
 
+            </div>
+        </div>
+    </div>
+</div>
+<div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+    <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+        <div class="d-flex align-items-center flex-wrap mr-2">
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"> </h5>
+            <span style="font-size:20px" class="text-dark font-weight-boldest ">Notice:</span>
+        </div>
+        
+        <marquee attribute_name="attribute_value" ....more attributes>
+            <h1>The Management of the School announce admissions for Class nursery to 10th for the session 2022-23</h1>
+        </marquee>
 
-
-<div class="slideshow-container">
-
-<div class="mySlides ">
-    <img src="https://media.istockphoto.com/photos/interior-of-a-school-classroom-with-wooden-desks-and-chairs-picture-id1296463018?b=1&k=20&m=1296463018&s=170667a&w=0&h=RWZEBlCbVMkWyfMnNu-nR-E6kWKApneOGieHc-ma9Oo=" alt="Alternate Text" style="height:400px;width:900px;margin:initial"/>
-  
+       
+    </div>
 </div>
 
-<div class="mySlides ">
-    <img src="https://media.istockphoto.com/photos/sports-teacher-and-group-of-kids-exercising-during-physical-activity-picture-id1331594995?b=1&k=20&m=1331594995&s=170667a&w=0&h=-H8wGUAtDkLZU39IGt1_gMJ12wisk0Jh_HBBePIXAyk=" alt="Alternate Text" style="height:400px;width:900px;margin:initial"/>
- 
+
+<div class="slideshow-container  shadow">
+
+    <div class="mySlides ">
+        <img src="https://media.istockphoto.com/photos/interior-of-a-school-classroom-with-wooden-desks-and-chairs-picture-id1296463018?b=1&k=20&m=1296463018&s=170667a&w=0&h=RWZEBlCbVMkWyfMnNu-nR-E6kWKApneOGieHc-ma9Oo=" alt="Alternate Text" style="height:800px;width:1000px;margin:initial" />
+
+    </div>
+
+    <div class="mySlides  ">
+        <img src="https://media.istockphoto.com/photos/sports-teacher-and-group-of-kids-exercising-during-physical-activity-picture-id1331594995?b=1&k=20&m=1331594995&s=170667a&w=0&h=-H8wGUAtDkLZU39IGt1_gMJ12wisk0Jh_HBBePIXAyk=" alt="Alternate Text" style="height:800px;width:1000px;margin:initial" />
+
+    </div>
+
+    <div class="mySlides ">
+        <img src="https://wallpapercave.com/wp/wp5501211.jpg" alt="Alternate Text" style="height:800px;width:1000px;margin:initial" />
+    </div>
+
+
+    <div style="text-align:center ">
+        <span class="dot "></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
 </div>
+<script>
+    let slideIndex = 0;
+    showSlides();
 
-<div class="mySlides ">
-    <img src="https://wallpapercave.com/wp/wp5501211.jpg" alt="Alternate Text" style="height:400px;width:900px;margin:initial"/>
-</div>
-
-
-
-
-<div style="text-align:center ">
-  <span class="dot "></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-</div>
-</div>
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+</script>

@@ -3,40 +3,57 @@
 @{
     ViewBag.Title = "Details";
 }
+<div id="kt_header" class="header header-fixed">
+    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+        <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+            <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
+                <span id="CustomerName" style="margin-top:1rem;margin-left:200px;font-size:30px;font-weight:500">Attendance</span>
+            </div>
+        </div>
+        <div class="topbar">
+            <div class="topbar-item">
 
-<h2>Details</h2>
-
-<div>
-    <h4>Attendance</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DateTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Attendance1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Attendance1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserRegistration.FullName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserRegistration.FullName)
-        </dd>
-
-    </dl>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AttendenceId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div style="margin-left: 200px; margin-right: 350px;" class="shadow">
+    <div>
+        <h2 style="font-weight: 800; text-align: center">
+            <br />
+            @Html.DisplayFor(model => model.UserRegistration.FullName)'s
+            Attendance
+            Details
+        </h2>
+        <hr />
+        <div>
+
+            <dl class="dl-horizontal">
+                <dt>
+                    Status :
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Attendance1)
+                </dd>
+
+                <dt>
+                    Date Time :
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DateTime)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="form-actions no-color" style="text-align: center">
+            
+                <a href="@Url.Action("Edit", "Attendances", new { id = Model.AttendenceId })" class="btn btn-primary font-weight-bold btn-pill">Edit</a>
+                <a href="@Url.Action("Index", "Attendances")" class="btn btn-dark font-weight-bold btn-pill">Back</a>
+
+        </div>
+        <br />
+
+        </div>
+    </div>

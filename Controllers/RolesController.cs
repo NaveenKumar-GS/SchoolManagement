@@ -15,25 +15,15 @@ namespace Schoolmanagementn.Controllers
     {
         private SchoolmanagementEntities db = new SchoolmanagementEntities();
 
-        // GET: Roles
+        
         public ActionResult Index()
         {
-            var roles = db.Roles.ToList();
-            List<RoleViewModel> list = new List<RoleViewModel>();
 
-            if (roles != null)
-            {
-                foreach (var role in roles)
-                {
-                    RoleViewModel roleViewModel = new RoleViewModel();
-                    roleViewModel.RoleId = role.RoleId;
-                    roleViewModel.RoleName = role.RoleName;
-                    list.Add(roleViewModel);
-                }
-            }
-            return View(list);
+            return View(db.Roles.ToList());
+
         }
-
+           
+        
         // GET: Roles/Details/5
         public ActionResult Details(string id)
         {
@@ -44,7 +34,8 @@ namespace Schoolmanagementn.Controllers
             Role role = db.Roles.Find(id);
             if (role == null)
             {
-                return HttpNotFound();
+                 return RedirectToAction("404");
+                /*return HttpNotFound();*/
             }
             return View(role);
         }

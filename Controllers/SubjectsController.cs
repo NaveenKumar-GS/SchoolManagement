@@ -26,8 +26,10 @@ namespace Schoolmanagementn.Controllers
         {
             if (id == null)
             {
+                /* return RedirectToAction("404");*/
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            
+        }
             Subject subject = db.Subjects.Find(id);
             if (subject == null)
             {
@@ -50,17 +52,14 @@ namespace Schoolmanagementn.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "SubjectId,SubjectName,Class")] Subject subject)
         {
-            try {
+            
                 if (ModelState.IsValid)
                 {
                     db.Subjects.Add(subject);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
-                } }
-            catch (Exception ex)
-            {
-                Console.WriteLine("id has Alredy taken");
-            }
+                    TempData["AlertMessage"] = "Subject Created Successfully...!";
+                    return RedirectToAction("Details");
+                }
             ViewBag.Class = new SelectList(db.Classes, "ClassId", "ClassName", subject.Class);
             return View(subject);
             }
@@ -92,6 +91,7 @@ namespace Schoolmanagementn.Controllers
             {
                 db.Entry(subject).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["AlertMessage"] = "Subject Edited Successfully...!";
                 return RedirectToAction("Index");
             }
             ViewBag.Class = new SelectList(db.Classes, "ClassId", "ClassName", subject.Class);
@@ -107,10 +107,11 @@ namespace Schoolmanagementn.Controllers
             }
             Subject subject = db.Subjects.Find(id);
             if (subject == null)
-            {
+            { 
                 return HttpNotFound();
             }
             return View(subject);
+           
         }
 
         // POST: Subjects/Delete/5
@@ -119,8 +120,12 @@ namespace Schoolmanagementn.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             Subject subject = db.Subjects.Find(id);
+
             db.Subjects.Remove(subject);
+
             db.SaveChanges();
+            TempData["AlertMessageDelete"] = "Subject Deleted Successfully...!";
+            
             return RedirectToAction("Index");
         }
 

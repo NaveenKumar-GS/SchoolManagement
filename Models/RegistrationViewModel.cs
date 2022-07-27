@@ -23,7 +23,7 @@ namespace Schoolmanagementn.Models
         public string PhoneNumber { get; set; }
         
         [Required]
-        
+        [DataType(DataType.Password)]
         [RegularExpression(@"(?=.*\d)(?=.*[A-Za-z]).{8,}", ErrorMessage = "Your password must be at least 8 characters long and contain at least 1 letter and 1 number")]
         public string Password { get; set; }
         [Required]

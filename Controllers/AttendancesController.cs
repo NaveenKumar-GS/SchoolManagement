@@ -50,16 +50,15 @@ namespace Schoolmanagementn.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Include = "AttendenceId,FullName,DateTime,Attendance1")] Attendance attendance)
         {
-            try
-            {
+            
                 if (ModelState.IsValid)
                 {
                     db.Attendances.Add(attendance);
                     db.SaveChanges();
+                    TempData["AlertMessage"] = "Attendance Done...!";
                     return RedirectToAction("Index");
                 }
-            }
-            catch (Exception ex) { Console.WriteLine("id has taken"); }
+            
             
                 ViewBag.FullName = new SelectList(db.UserRegistrations, "UserId", "FullName", attendance.FullName);
                 return View(attendance);

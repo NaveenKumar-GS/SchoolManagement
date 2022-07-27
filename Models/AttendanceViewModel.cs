@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using Xunit;
-using Xunit.Sdk;
+/*using Xunit;
+using Xunit.Sdk;*/
 
 namespace Schoolmanagementn.Models
 {
@@ -13,7 +13,8 @@ namespace Schoolmanagementn.Models
         public string AttendenceId { get; set; }
        
         public string FullName { get; set; }
-        [Required(ErrorMessage = " Date&Time is Required")]
+        [Required(ErrorMessage = " Date&Time is Required And Enter in correct formate")]
+        
         public System.DateTime DateTime { get; set; }
         [Required(ErrorMessage = " Attendance is Required")]
        

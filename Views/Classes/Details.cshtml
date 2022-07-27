@@ -4,31 +4,44 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Class</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ClassName)
-        </dt>
+    <div style="margin-left: 200px; margin-right: 350px;" class="shadow">
+        <div>
+            <h2 style="font-weight: 800; text-align: center">
+                <br />
+                @Html.DisplayFor(model => model.ClassName)
 
-        <dd>
-            @Html.DisplayFor(model => model.ClassName)
-        </dd>
+                Details
+            </h2>
+            <hr />
+            <div>
+                <dl class="dl-horizontal">
+                    <dt>
+                        Class :
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AcademicYear)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ClassName)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.AcademicYear)
-        </dd>
+                    <dt>
+                        Academic Year :
+                    </dt>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ClassId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                    <dd>
+                        @Html.DisplayFor(model => model.AcademicYear)
+                    </dd>
+
+                </dl>
+            </div>
+           
+            <div class="form-actions no-color" style="text-align: center">
+
+                <a href="@Url.Action("Edit", "Classes", new { id = Model.ClassId })" class="btn btn-primary font-weight-bold btn-pill">Edit</a>
+                <a href="@Url.Action("Index", "Classes")" class="btn btn-dark font-weight-bold btn-pill">Back</a>
+
+            </div>
+            <br />
+
+        </div>
+    </div>

@@ -4,23 +4,35 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Role</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.RoleName)
-        </dt>
+<div style="margin-left: 200px; margin-right: 350px;" class="shadow">
+    <div>
+        <h2 style="font-weight: 800; text-align: center">
+            <br />
 
-        <dd>
-            @Html.DisplayFor(model => model.RoleName)
-        </dd>
+            Role
+            Details
+        </h2>
+        <hr />
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    Role :
+                </dt>
 
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.RoleName)
+                </dd>
+        
+        </dl>
+    </div>
+    <div class="form-actions no-color" style="text-align: center">
+
+        <a href="@Url.Action("Edit", "Roles", new { id = Model.RoleId })" class="btn btn-primary font-weight-bold btn-pill">Edit</a>
+        <a href="@Url.Action("Index", "Roles")" class="btn btn-dark font-weight-bold btn-pill">Back</a>
+
+    </div>
+    <br />
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RoleId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</div>

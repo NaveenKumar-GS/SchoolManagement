@@ -4,52 +4,70 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+
+@using (Html.BeginForm())
 {
+    <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+        <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+            <div class="d-flex align-items-center flex-wrap mr-2">
+                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"> </h5>
+                <span style="font-size:20px" class="text-dark font-weight-boldest ">Create</span>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="btn-group ml-2">
+
+                    <div class="container-fluid d-flex flex-wrap flex-sm-nowrap">
+
+                        <a href="@Url.Action("Index", "Subjects")" class="btn btn-dark font-weight-bold btn-sm px-3 font-size-base" style="margin-left: 700px">Back</a>
+                        <div class="btn-group ml-2">
+                            <input type="submit" value="Save" class="btn btn-primary font-weight-bold btn-sm px-3 font-size-base" onclick="return encrypt()" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     @Html.AntiForgeryToken()
-    
+
+
     <div class="form-horizontal">
-        <h4>Subject</h4>
-        <hr />
+       
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.SubjectId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Subject Id<span class="text-danger">*</span></label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SubjectId, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SubjectId, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.SubjectName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+        <div class="form-group row rowcostumclass">
+
+            <label class="control-label col-md-2">Subject<span class="text-danger">*</span></label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SubjectName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SubjectName, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Class, "Class", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group row rowcostumclass">
+
+            <label class="control-label col-md-2">Class<span class="text-danger">*</span></label>
             <div class="col-md-10">
-                @Html.DropDownList("Class", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("Class", null, "-Select Class-", htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Class, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+
     </div>
+
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
